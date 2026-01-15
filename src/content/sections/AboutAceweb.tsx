@@ -1,6 +1,9 @@
+import Header from "@/components/Header";
+
 function AboutAceweb() {
   return (
     <>
+      <Header />
       <p>
         Aceweb is a web video player designed to make Acestream accesible
         directly from the browser, without the need to install external

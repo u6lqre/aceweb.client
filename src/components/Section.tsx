@@ -1,16 +1,28 @@
-import type { ReactNode } from "react";
+import { motion, useInView } from "motion/react";
+import { useEffect, useRef, type ReactNode } from "react";
 
 type Props = {
+  id: number;
+  href: string;
   title: string | undefined;
   content: ReactNode;
+  setActiveTab: (id: number) => void;
 };
 
-function Section({ title, content }: Props) {
+function Section({ id, href, title, content, setActiveTab }: Props) {
+  const sectionRef = useRef<HTMLElement | null>(null);
+
+  const isInView = useInView(sectionRef, { amount: 1 });
+
+  useEffect(() => {
+    isInView && setActiveTab(id);
+  }, [isInView]);
+
   return (
-    <section className="flex flex-col gap-3">
-      <h1 className="text-lg text-black">{title}</h1>
+    <motion.section ref={sectionRef} id={href} className="flex flex-col gap-3">
+      <h1 className="mt-5 text-lg text-black">{title}</h1>
       {content}
-    </section>
+    </motion.section>
   );
 }
 

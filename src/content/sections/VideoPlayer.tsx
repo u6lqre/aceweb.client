@@ -12,7 +12,7 @@ function VideoPlayer() {
         whileTap={{ scale: 0.98 }}
         animate={{ scale: fullscreen ? 1.5 : 1 }}
         transition={{ type: "spring", duration: 0.4 }}
-        className="w-55 rounded-xl border-4 border-white shadow-md cursor-pointer"
+        className="w-70 rounded-xl border-4 border-white shadow-md cursor-pointer"
         src="https://media.tenor.com/OZNgEScYdxcAAAAM/theofficechristmas-theoffice.gif"
       />
       <span className="text-neutral-2">Not yet. 😛</span>
