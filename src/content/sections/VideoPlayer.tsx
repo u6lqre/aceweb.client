@@ -6,14 +6,17 @@ function VideoPlayer() {
 
   return (
     <div className="flex flex-col justify-center items-center gap-2.5">
-      <motion.img
+      <motion.div
         onClick={() => setFullscreen(!fullscreen)}
         whileHover={!fullscreen ? { scale: 1.02 } : ""}
         whileTap={{ scale: 0.98 }}
+        drag={!fullscreen}
+        dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
+        dragElastic={0.2}
         animate={{ scale: fullscreen ? 1.5 : 1 }}
         transition={{ type: "spring", duration: 0.4 }}
-        className="w-70 rounded-xl border-4 border-white shadow-md cursor-pointer"
-        src="https://media.tenor.com/OZNgEScYdxcAAAAM/theofficechristmas-theoffice.gif"
+        className="w-70 h-[383px] rounded-xl border-4 border-white shadow-md cursor-pointer bg-[url('https://media.tenor.com/OZNgEScYdxcAAAAM/theofficechristmas-theoffice.gif')] bg-cover bg-center bg-no-repeat"
       />
       <span className="text-neutral-2">Not yet. 😛</span>
     </div>
