@@ -8,7 +8,8 @@ function VideoPlayer() {
     <div className="flex flex-col justify-center items-center gap-2.5">
       <motion.img
         onClick={() => setFullscreen(!fullscreen)}
-        whileTap={{ scale: 0.95 }}
+        whileHover={!fullscreen ? { scale: 1.02 } : ""}
+        whileTap={{ scale: 0.98 }}
         animate={{ scale: fullscreen ? 1.5 : 1 }}
         transition={{ type: "spring", duration: 0.4 }}
         className="w-55 rounded-xl border-4 border-white shadow-md cursor-pointer"
