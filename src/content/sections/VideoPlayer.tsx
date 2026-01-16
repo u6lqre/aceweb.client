@@ -5,7 +5,7 @@ function VideoPlayer() {
   const [fullscreen, setFullscreen] = useState<boolean>(false);
 
   return (
-    <div className="flex flex-col justify-center items-center gap-2.5">
+    <div className="flex flex-col justify-center items-center gap-2">
       <motion.div
         onClick={() => setFullscreen(!fullscreen)}
         whileHover={!fullscreen ? { scale: 1.02 } : ""}
@@ -14,7 +14,7 @@ function VideoPlayer() {
         dragConstraints={{ top: 0, right: 0, bottom: 0, left: 0 }}
         dragTransition={{ bounceStiffness: 500, bounceDamping: 20 }}
         dragElastic={0.2}
-        animate={{ scale: fullscreen ? 1.5 : 1 }}
+        animate={{ scale: fullscreen ? 1.3 : 1 }}
         transition={{ type: "spring", duration: 0.4 }}
         className="w-70 h-[383px] rounded-xl border-4 border-white shadow-md cursor-pointer bg-[url('https://media.tenor.com/OZNgEScYdxcAAAAM/theofficechristmas-theoffice.gif')] bg-cover bg-center bg-no-repeat"
       />

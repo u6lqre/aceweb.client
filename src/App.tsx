@@ -19,7 +19,7 @@ function App() {
   }, [inViewSections]);
 
   return (
-    <main className="w-[620px] flex flex-col text-neutral-1">
+    <main className="max-w-[700px] mx-auto p-10 flex flex-col text-neutral-1">
       {webSections.map((s) => (
         <>
           <Section

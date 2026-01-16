@@ -8,9 +8,9 @@ type Props = {
 
 function Nav({ activeSection, setActiveSection }: Props) {
   return (
-    <nav className="fixed flex flex-col top-22 right-10 text-sm gap-3">
+    <nav className="fixed top-22 right-10 text-sm hidden lg:block">
       <span className="text-black">Table of contents</span>
-      <div className="flex flex-col gap-2.5 pl-4 relative">
+      <div className="flex flex-col gap-2.5 pl-4 relative mt-3">
         <div className="absolute w-[3px] h-full bg-neutral-3 rounded-full left-0.5" />
         {webSections.map((section) => (
           <>
