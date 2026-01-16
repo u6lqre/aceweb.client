@@ -12,7 +12,7 @@ function Nav({ inViewSection, setInViewSection }: Props) {
       {webSections.map((section) => (
         <a
           href={`#${section.href}`}
-          key={section.id}
+          key={`nav-${section.id}`}
           onClick={() => setInViewSection(section.id)}
           className="w-[190px] h-9 cursor-pointer relative"
         >

@@ -19,9 +19,11 @@ function Section({ id, href, title, content, setInViewSection }: Props) {
   }, [isInView]);
 
   return (
-    <motion.section ref={sectionRef} id={href} className="flex flex-col gap-3">
-      <h1 className="mt-5 text-lg text-black">{title}</h1>
-      {content}
+    <motion.section ref={sectionRef} className="flex flex-col gap-2">
+      <h1 id={href} className="scroll-mt-2 text-black font-medium">
+        {title}
+      </h1>
+      <div className="flex flex-col gap-3">{content}</div>
     </motion.section>
   );
 }
