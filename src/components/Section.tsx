@@ -18,7 +18,7 @@ type Props = {
 function Section({ id, href, title, content, setInViewSections }: Props) {
   const sectionRef = useRef<HTMLElement | null>(null);
 
-  const isInView = useInView(sectionRef, { amount: 0.7 });
+  const isInView = useInView(sectionRef, { amount: 0.4 });
 
   useEffect(() => {
     setInViewSections((prev) => {
