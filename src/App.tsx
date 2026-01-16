@@ -2,13 +2,21 @@ import Section from "./components/Section";
 import Footer from "./components/Footer";
 import { webSections } from "./content/webSections";
 import Nav from "./components/Nav";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Separator from "./ui/Separator";
 
 export type LoadingState = "idle" | "loading" | "loaded" | "error";
 
 function App() {
-  const [inViewSection, setInViewSection] = useState<number>(webSections[0].id);
+  const [inViewSections, setInViewSections] = useState<number[]>([
+    webSections[0].id,
+  ]);
+  const [activeSection, setActiveSection] = useState<number>(webSections[0].id);
+
+  useEffect(() => {
+    const topSection = Math.min(...inViewSections);
+    setActiveSection(topSection);
+  }, [inViewSections]);
 
   return (
     <main className="w-[620px] flex flex-col text-neutral-1">
@@ -20,7 +28,7 @@ function App() {
             href={s.href}
             title={s.title}
             content={s.content}
-            setInViewSection={setInViewSection}
+            setInViewSections={setInViewSections}
           />
           <Separator key={`separator-${s.id}`} />
         </>
@@ -28,7 +36,7 @@ function App() {
 
       <Footer />
 
-      <Nav inViewSection={inViewSection} setInViewSection={setInViewSection} />
+      <Nav activeSection={activeSection} setActiveSection={setActiveSection} />
     </main>
   );
 }

@@ -2,18 +2,18 @@ import { motion } from "motion/react";
 import { webSections } from "@/content/webSections";
 
 type Props = {
-  inViewSection: number;
-  setInViewSection: (id: number) => void;
+  activeSection: number;
+  setActiveSection: (id: number) => void;
 };
 
-function Nav({ inViewSection, setInViewSection }: Props) {
+function Nav({ activeSection, setActiveSection }: Props) {
   return (
     <nav className="fixed flex flex-col left-1/2 top-70 -translate-x-[600px]">
       {webSections.map((section) => (
         <a
           href={`#${section.href}`}
           key={`nav-${section.id}`}
-          onClick={() => setInViewSection(section.id)}
+          onClick={() => setActiveSection(section.id)}
           className="w-[190px] h-9 cursor-pointer relative"
         >
           <motion.div
@@ -24,7 +24,7 @@ function Nav({ inViewSection, setInViewSection }: Props) {
             <span className="text-black">{section.label}</span>
           </motion.div>
 
-          {inViewSection == section.id && (
+          {activeSection == section.id && (
             <motion.div
               layoutId="bubble"
               transition={{ type: "spring", duration: 0.5 }}
