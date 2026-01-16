@@ -8,31 +8,33 @@ type Props = {
 
 function Nav({ activeSection, setActiveSection }: Props) {
   return (
-    <nav className="fixed flex flex-col left-1/2 top-70 -translate-x-[600px]">
-      {webSections.map((section) => (
-        <a
-          href={`#${section.href}`}
-          key={`nav-${section.id}`}
-          onClick={() => setActiveSection(section.id)}
-          className="w-[190px] h-9 cursor-pointer relative"
-        >
-          <motion.div
-            whileTap={{ scale: 0.98 }}
-            className="w-full h-full flex items-center gap-1.5"
-          >
-            <img className="ml-2.5" src={`/${section.icon}-icon.svg`} />
-            <span className="text-black">{section.label}</span>
-          </motion.div>
+    <nav className="fixed flex flex-col top-22 right-10 text-sm gap-3">
+      <span className="text-black">Table of contents</span>
+      <div className="flex flex-col gap-2.5 pl-4 relative">
+        <div className="absolute w-[3px] h-full bg-neutral-3 rounded-full left-0.5" />
+        {webSections.map((section) => (
+          <>
+            <a
+              href={`#${section.href}`}
+              key={`nav-${section.id}`}
+              onClick={() => setActiveSection(section.id)}
+              className={`cursor-pointer relative duration-700 hover:text-neutral-1 ${
+                activeSection === section.id ? "text-black" : "text-neutral-2"
+              }`}
+            >
+              {section.label}
 
-          {activeSection == section.id && (
-            <motion.div
-              layoutId="bubble"
-              transition={{ type: "spring", duration: 0.5 }}
-              className="bg-neutral-4 w-full h-full absolute inset-0 -z-5 rounded-full"
-            ></motion.div>
-          )}
-        </a>
-      ))}
+              {activeSection === section.id && (
+                <motion.div
+                  layoutId="bubble"
+                  transition={{ type: "spring", duration: 0.7 }}
+                  className="absolute w-[3px] h-4 bg-black rounded-full -left-3.5 top-0"
+                />
+              )}
+            </a>
+          </>
+        ))}
+      </div>
     </nav>
   );
 }
