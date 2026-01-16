@@ -6,16 +6,16 @@ type Props = {
   href: string;
   title: string | undefined;
   content: ReactNode;
-  setActiveTab: (id: number) => void;
+  setInViewSection: (id: number) => void;
 };
 
-function Section({ id, href, title, content, setActiveTab }: Props) {
+function Section({ id, href, title, content, setInViewSection }: Props) {
   const sectionRef = useRef<HTMLElement | null>(null);
 
   const isInView = useInView(sectionRef, { amount: 1 });
 
   useEffect(() => {
-    isInView && setActiveTab(id);
+    isInView && setInViewSection(id);
   }, [isInView]);
 
   return (

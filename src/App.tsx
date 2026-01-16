@@ -7,7 +7,7 @@ import { useState } from "react";
 export type LoadingState = "idle" | "loading" | "loaded" | "error";
 
 function App() {
-  const [activeTab, setActiveTab] = useState<number>(0);
+  const [inViewSection, setInViewSection] = useState<number>(webSections[0].id);
 
   return (
     <main className="w-[620px] flex flex-col text-neutral-1 gap-5">
@@ -20,13 +20,13 @@ function App() {
           href={s.href}
           title={s.title}
           content={s.content}
-          setActiveTab={setActiveTab}
+          setInViewSection={setInViewSection}
         />
       ))}
 
       <Footer />
 
-      <Nav activeTab={activeTab} setActiveTab={setActiveTab} />
+      <Nav inViewSection={inViewSection} setInViewSection={setInViewSection} />
     </main>
   );
 }
