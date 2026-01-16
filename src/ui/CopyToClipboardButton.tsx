@@ -12,7 +12,7 @@ function CopyToClipboardButton() {
 
     setTimeout(() => {
       setCopied(false);
-    }, 2000);
+    }, 1500);
   };
 
   return (
@@ -23,21 +23,30 @@ function CopyToClipboardButton() {
         whileTap={{ scale: 0.95 }}
         className="size-9 bg-neutral-4 flex items-center justify-center rounded-full cursor-pointer"
       >
-        <img src="link-icon.svg" />
+        <AnimatePresence mode="wait">
+          {!copied ? (
+            <motion.img
+              key="link"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.1 }}
+              src="link-icon.svg"
+              className="size-5"
+            />
+          ) : (
+            <motion.img
+              key="check"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.1 }}
+              src="check-icon.svg"
+              className="size-5"
+            />
+          )}
+        </AnimatePresence>
       </motion.button>
-
-      <AnimatePresence>
-        {copied && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, y: 5, x: -50 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.8 }}
-            className="text-xs bg-neutral-4 text-neutral-2 rounded-[10px] py-2.5 absolute w-[140px] text-center shadow-xs"
-          >
-            Copied to clipboard!
-          </motion.div>
-        )}
-      </AnimatePresence>
     </div>
   );
 }
