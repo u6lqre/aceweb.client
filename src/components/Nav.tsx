@@ -28,7 +28,7 @@ function Nav({ activeSection, setActiveSection }: Props) {
                 <motion.div
                   layoutId="bubble"
                   transition={{ type: "spring", duration: 0.7 }}
-                  className="absolute w-[3px] h-4 bg-black rounded-full -left-3.5 top-0"
+                  className="absolute w-[3px] h-5 bg-black rounded-full -left-3.5 top-0"
                 />
               )}
             </a>
