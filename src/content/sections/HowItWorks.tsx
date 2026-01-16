@@ -5,7 +5,7 @@ function HowItWorks() {
         Paste your AceStream link into the text field. Supported links have this
         format:
       </p>
-      <code className="p-1.5 rounded-lg border border-neutral-3 w-7/8 overflow-hidden sm:w-fit self-center text-xs">
+      <code className="p-1.5 rounded-lg border border-neutral-3 overflow-hidden max-w-fit sm:self-center text-sm">
         acestream:\\5b776533534b767a84dfda263825ae1...
       </code>
       <p>
