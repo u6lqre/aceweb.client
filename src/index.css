@@ -11,12 +11,20 @@
   --color-neutral-2: #7f7f7f;
   --color-neutral-3: #cccccc;
   --color-neutral-4: #fdfdfc;
+
+  --font-mono: "Geist Mono";
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url(/src/assets/fonts/GeistMono[wght].woff2);
 }
 
 body {
   background-color: var(--neutral-4);
   font-size: 14px;
   color: var(--black);
+  font-family: "Geist Mono";
 }
 
 button {
