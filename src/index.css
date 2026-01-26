@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-white: #fff;
+  --color-black: #1a1a1a;
+  --color-blue: #3d83f7;
+  --color-red: #ff383c;
+  --color-green: #2bca49;
+  --color-orange: #ff8d28;
+  --color-neutral-1: #262626;
+  --color-neutral-2: #7f7f7f;
+  --color-neutral-3: #cccccc;
+  --color-neutral-4: #fdfdfc;
+}
+
+body {
+  background-color: var(--neutral-4);
+  font-size: 14px;
+  color: var(--black);
+}
+
+button {
+  cursor: pointer;
+}
