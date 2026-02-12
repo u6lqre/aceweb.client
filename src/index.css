@@ -1,4 +1,68 @@
+:root {
+  --color-black: black;
+  --color-white: white;
+  --color-neutral-1: #c0c0c0;
+  --color-neutral-3: #f3f3f3;
+  --color-neutral-4: #f9f9f9;
+  --color-pink: #f775ff;
+  --color-pink-dark: #f10fff;
+}
+
+@font-face {
+  font-family: Inter;
+  src: url(./assets/fonts/Inter-VariableFont\,wght.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    Inter,
+    sans-serif;
+  font-weight: 450;
+  font-size: 16px;
+  color: var(--color-black);
+  background-color: var(--color-white);
+}
+
+input {
+  outline: none;
+  border: none;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+button {
+  outline: none;
+  border: none;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+a {
+  text-decoration: none;
+  font-weight: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+#centered-content {
+  width: 100%;
+  max-width: 640px;
+  padding: 0 40px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
