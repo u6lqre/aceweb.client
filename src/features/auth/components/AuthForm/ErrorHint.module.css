@@ -1,0 +1,27 @@
+.errorMessage {
+  position: absolute;
+  right: 8px;
+  font-size: 12px;
+  width: max-content;
+  color: var(--color-red);
+  padding: 8px;
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

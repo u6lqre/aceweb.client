@@ -1,0 +1,18 @@
+.title {
+  font-size: 20px;
+  font-weight: inherit;
+  margin-bottom: 4px;
+}
+
+.link {
+  margin-left: 8px;
+  color: var(--color-pink);
+  transition: all 200ms ease;
+}
+
+.disclaimer {
+  position: absolute;
+  bottom: 20px;
+  font-size: 14px;
+  color: var(--color-neutral-1);
+}
