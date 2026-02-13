@@ -4,8 +4,10 @@
   --color-neutral-1: #c0c0c0;
   --color-neutral-3: #f3f3f3;
   --color-neutral-4: #f9f9f9;
-  --color-pink: #f775ff;
-  --color-pink-dark: #f10fff;
+  --color-pink: #ff69b8;
+  --color-red: #ff2b3a;
+  --color-red-2: #ff8f97;
+  --color-red-3: #ffe5e7;
 }
 
 @font-face {
@@ -25,7 +27,7 @@ body {
     BlinkMacSystemFont,
     Inter,
     sans-serif;
-  font-weight: 450;
+  font-weight: 400;
   font-size: 16px;
   color: var(--color-black);
   background-color: var(--color-white);
