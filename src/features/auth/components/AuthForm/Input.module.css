@@ -11,6 +11,7 @@
 }
 .input::placeholder {
   color: var(--color-neutral-1);
+  text-transform: capitalize;
 }
 .input.error {
   color: var(--color-red);

@@ -1,0 +1,11 @@
+.button {
+  padding: 6px 14px;
+  color: var(--color-white);
+  background-color: var(--color-blue);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 100ms ease;
+}
+.button:focus {
+  transform: scale(0.97);
+}

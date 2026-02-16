@@ -4,19 +4,16 @@ import styles from "./styles.module.css";
 function Register() {
   return (
     <div id="centered-content">
-      <h1 className={styles.title}>Create an account</h1>
+      <img src="/laliga-logo.svg" className={styles.logo} />
+      <div>
+        <h1 className={styles.title}>Welcome to Aceweb</h1>
+        <h2 className={styles.subtitle}>Log in or sign up to get started.</h2>
+      </div>
 
       <AuthForm />
 
-      <p>
-        Already have an account?
-        <a href="#" className={styles.link}>
-          Log in
-        </a>
-      </p>
-
       <span className={styles.disclaimer}>
-        An admin must approve your request before you can start using Aceweb.
+        We’ll create an account if you don’t have one yet.
       </span>
     </div>
   );

@@ -5,6 +5,8 @@
   --color-neutral-3: #f3f3f3;
   --color-neutral-4: #f9f9f9;
   --color-pink: #ff69b8;
+  --color-blue: #00b2ff;
+  --color-blue-2: #e2f3fe;
   --color-red: #ff2b3a;
   --color-red-2: #ff8f97;
   --color-red-3: #ffe5e7;
@@ -40,6 +42,9 @@ input {
   font-family: inherit;
   font-size: inherit;
 }
+input::placeholder {
+  font-weight: 400;
+}
 
 button {
   outline: none;
@@ -63,7 +68,7 @@ a {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
   align-items: center;
   justify-content: center;
   min-height: 100vh;

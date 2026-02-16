@@ -3,6 +3,7 @@ import ErrorHint from "./ErrorHint";
 import Input from "./Input";
 import styles from "./index.module.css";
 import type { InputConfig, RegisterForm } from "../../types";
+import Button from "./Button";
 
 const inputs: InputConfig[] = [
   {
@@ -47,7 +48,7 @@ function AuthForm() {
           <ErrorHint errors={errors} label={input.label} />
         </div>
       ))}
-      <button className={styles.button}>Continue</button>
+      <Button />
     </form>
   );
 }
