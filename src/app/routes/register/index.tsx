@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 function Register() {
   return (
     <div id="centered-content">
-      <img src="/laliga-logo.svg" className={styles.logo} />
+      <img src="/logo.svg" className={styles.logo} />
       <div>
         <h1 className={styles.title}>Welcome to Aceweb</h1>
         <h2 className={styles.subtitle}>Log in or sign up to get started.</h2>
