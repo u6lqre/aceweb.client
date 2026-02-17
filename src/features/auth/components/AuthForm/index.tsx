@@ -1,9 +1,10 @@
+import { useMutation } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
+import type { InputConfig, RegisterForm } from "../../types";
+import Button from "./Button";
 import ErrorHint from "./ErrorHint";
 import Input from "./Input";
 import styles from "./index.module.css";
-import type { InputConfig, RegisterForm } from "../../types";
-import Button from "./Button";
 
 const inputs: InputConfig[] = [
   {
@@ -32,7 +33,26 @@ function AuthForm() {
     formState: { errors },
   } = useForm<RegisterForm>();
 
-  const onSubmit = (data: RegisterForm) => console.log(data);
+  const mutation = useMutation({
+    mutationFn: async (post: RegisterForm) => {
+      const url = "http://localhost:3000/register";
+      const response = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(post),
+      });
+
+      if (!response.ok) {
+        throw new Error("Register failed");
+      }
+
+      return response.json();
+    },
+  });
+
+  const onSubmit = (data: RegisterForm) => mutation.mutate(data);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
@@ -48,7 +68,7 @@ function AuthForm() {
           <ErrorHint errors={errors} label={input.label} />
         </div>
       ))}
-      <Button />
+      <Button isPending={mutation.isPending} />
     </form>
   );
 }
