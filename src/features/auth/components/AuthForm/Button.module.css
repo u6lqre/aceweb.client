@@ -20,7 +20,7 @@
   color: white;
 }
 
-.span.loader {
+.loader {
   animation: spin 0.8s linear infinite;
 }
 
