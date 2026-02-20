@@ -8,7 +8,7 @@ import styles from "./index.module.css";
 
 const inputs: InputConfig[] = [
   {
-    label: "name",
+    label: "username",
     registerOptions: {
       required: { value: true, message: "Required" },
       minLength: { value: 3, message: "Too short" },
