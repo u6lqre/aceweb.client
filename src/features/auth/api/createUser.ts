@@ -1,20 +1,25 @@
+import type { ApiError } from "@/types/ApiError";
 import type { RegisterForm } from "../types";
 
-async function createUser(data: RegisterForm) {
+async function createUser(post: RegisterForm) {
   const url = "http://localhost:3000/register";
-  const response = await fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(data),
-  });
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(post),
+    });
 
-  if (!response.ok) {
-    throw new Error("Register failed");
-  }
+    const data = await response.json();
 
-  return response.json();
+    if (!response.ok) {
+      throw new Error((data as ApiError).error.message);
+    }
+
+    return data;
+  } catch (error) {}
 }
 
 export default createUser;
