@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 function Onboarding() {
   return (
-    <div id="centered-content">
+    <div id="container">
       <img src="/logo.svg" className={styles.logo} />
       <div>
         <h1 className={styles.title}>Welcome to Aceweb</h1>

@@ -61,7 +61,7 @@ a {
   font-size: inherit;
 }
 
-#centered-content {
+#container {
   width: 100%;
   max-width: 640px;
   padding: 0 40px;
