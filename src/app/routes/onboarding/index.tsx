@@ -1,7 +1,7 @@
 import AuthForm from "@/features/auth/components/AuthForm";
 import styles from "./styles.module.css";
 
-function Register() {
+function Onboarding() {
   return (
     <div id="centered-content">
       <img src="/logo.svg" className={styles.logo} />
@@ -19,4 +19,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default Onboarding;

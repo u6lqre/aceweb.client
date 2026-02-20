@@ -1,11 +1,11 @@
-import Register from "./routes/register";
+import Onboarding from "./routes/onboarding";
 
 type Props = {};
 
 function App({}: Props) {
   return (
     <div>
-      <Register />
+      <Onboarding />
     </div>
   );
 }
