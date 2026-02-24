@@ -12,6 +12,6 @@ export default function useCreateUser() {
 }
 
 function sleep() {
-  const minLoadingTime = 300;
+  const minLoadingTime = 400;
   return new Promise((resolve) => setTimeout(resolve, minLoadingTime));
 }
