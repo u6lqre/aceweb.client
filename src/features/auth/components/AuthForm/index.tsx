@@ -1,8 +1,11 @@
+import { AnimatePresence } from "motion/react";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import useCreateUser from "../../hooks/useCreateUser";
 import type { InputConfig, RegisterForm } from "../../types";
 import Button from "./Button";
 import ErrorHint from "./ErrorHint";
+import ErrorMessage from "./ErrorMessage";
 import Input from "./Input";
 import styles from "./index.module.css";
 
@@ -30,26 +33,39 @@ function AuthForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors: schemaErrors },
   } = useForm<RegisterForm>();
-  const { mutate, isPending } = useCreateUser();
+  const { mutate, isPending, error } = useCreateUser();
+  const [isTyping, setIsTyping] = useState<boolean>(false);
 
-  const onSubmit = (data: RegisterForm) => mutate(data);
+  const onSubmit = (data: RegisterForm) => {
+    setIsTyping(false);
+    mutate(data);
+  };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
       {inputs.map((input) => (
-        <div key={input.label} className={styles.inputContainer}>
+        <div
+          key={input.label}
+          className={styles.inputContainer}
+          onChange={() => setIsTyping(true)}
+        >
           <Input
             register={register}
-            errors={errors}
+            errors={schemaErrors}
             label={input.label}
             registerOptions={input.registerOptions}
             type={input.type}
           />
-          <ErrorHint errors={errors} label={input.label} />
+          <ErrorHint errors={schemaErrors} label={input.label} />
         </div>
       ))}
+
+      <AnimatePresence>
+        {error && !isTyping ? <ErrorMessage value={error.message} /> : null}
+      </AnimatePresence>
+
       <Button isPending={isPending} />
     </form>
   );
