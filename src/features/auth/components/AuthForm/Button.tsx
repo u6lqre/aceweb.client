@@ -13,9 +13,9 @@ function Button({ isPending }: Props) {
         <motion.span
           className={styles.span}
           key={`isPending-${isPending}`}
-          initial={{ y: -25, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 25, opacity: 0 }}
+          initial={{ y: -25, opacity: 0, filter: "blur(4px)" }}
+          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
+          exit={{ y: 25, opacity: 0, filter: "blur(4px)" }}
           transition={{ type: "spring", duration: 0.3, bounce: 0 }}
         >
           {isPending ? (
