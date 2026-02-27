@@ -2,14 +2,14 @@ import type { ApiError } from "@/types/ApiError";
 import type { RegisterForm } from "../types";
 
 type SuccessResponse = {
-  object: string;
-  id?: number;
-  isAccepted?: boolean;
+  data: {
+    type: string;
+    message?: string;
+    isAccepted?: boolean;
+  };
 };
 
-async function createUser(
-  post: RegisterForm,
-): Promise<SuccessResponse | ApiError> {
+async function createUser(post: RegisterForm): Promise<SuccessResponse> {
   const url = "http://localhost:3000/onboarding";
 
   const response = await fetch(url, {
