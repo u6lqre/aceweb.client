@@ -1,6 +1,7 @@
 import { AnimatePresence } from "motion/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import useCreateUser from "../../hooks/useCreateUser";
 import type { InputConfig, RegisterForm } from "../../types";
 import Button from "./Button";
@@ -35,13 +36,21 @@ function AuthForm() {
     handleSubmit,
     formState: { errors: schemaErrors },
   } = useForm<RegisterForm>();
-  const { mutate, isPending, error } = useCreateUser();
+  const { mutate, isPending, error, data: response } = useCreateUser();
   const [isTyping, setIsTyping] = useState<boolean>(false);
+  const navigate = useNavigate();
 
   const onSubmit = (data: RegisterForm) => {
     setIsTyping(false);
     mutate(data);
   };
+
+  useEffect(() => {
+    if (response) {
+      const data = response.data;
+      data.isAccepted ? navigate("/dashboard") : navigate("/request");
+    }
+  }, [response]);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
