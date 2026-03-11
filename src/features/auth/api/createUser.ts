@@ -6,6 +6,7 @@ type SuccessResponse = {
     type: string;
     message?: string;
     isAccepted?: boolean;
+    token: string | null;
   };
 };
 

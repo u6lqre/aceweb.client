@@ -2,6 +2,7 @@ import { AnimatePresence } from "motion/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../hooks/useAuth";
 import useCreateUser from "../../hooks/useCreateUser";
 import type { InputConfig, RegisterForm } from "../../types";
 import Button from "./Button";
@@ -39,6 +40,7 @@ function AuthForm() {
   const { mutate, isPending, error, data: response } = useCreateUser();
   const [isTyping, setIsTyping] = useState<boolean>(false);
   const navigate = useNavigate();
+  const { addToken } = useAuth();
 
   const onSubmit = (data: RegisterForm) => {
     setIsTyping(false);
@@ -48,7 +50,8 @@ function AuthForm() {
   useEffect(() => {
     if (response) {
       const data = response.data;
-      data.isAccepted ? navigate("/dashboard") : navigate("/request");
+      data.token && addToken(data.token);
+      data.isAccepted ? navigate("/home") : navigate("/request");
     }
   }, [response]);
 
