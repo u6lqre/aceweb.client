@@ -29,10 +29,11 @@ body {
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
-  font-weight: 400;
+  font-weight: 450;
   font-size: 16px;
   color: var(--color-black);
   background-color: var(--color-white);
+  -webkit-font-smoothing: antialiased;
 }
 
 input {
@@ -43,7 +44,7 @@ input {
   font-size: inherit;
 }
 input::placeholder {
-  font-weight: 400;
+  font-weight: inherit;
 }
 
 button {
